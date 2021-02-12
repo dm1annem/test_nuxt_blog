@@ -14,6 +14,9 @@
 <script>
 import AppPost from '@/components/main/Post.vue'
 export default {
+    head:{
+        title: 'Главная по розам'
+    },
     components:{
         AppPost
     }
