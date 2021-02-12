@@ -66,4 +66,17 @@ export default {
 
 }
 
+.post-img img{
+    width: 100%;
+    height: auto;
+
+}
+
+.post-header{
+    margin-bottom: 1.5rem;
+}
+
+.post-content{
+    margin-bottom: 2rem;
+}
 </style>
