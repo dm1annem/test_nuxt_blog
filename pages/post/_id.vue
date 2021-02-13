@@ -34,7 +34,12 @@
         </main>
 
         <footer>
-            <comment-form/>
+            <div v-if="canAddComment">
+                <app-comment-form
+                @created="createCommentHendler"
+                />
+            </div>
+            
 
            
 
@@ -58,12 +63,25 @@
 import AppComment from '@/components/main/Comment.vue'
 import AppCommentForm from '@/components/main/CommentForm.vue'
 export default {
+
+    data(){
+        return{
+            canAddComment: true,
+        }
+    },
+
     components:{
         AppComment,
         AppCommentForm,
     },
     validate({params}){
         return Boolean(params.id)
+    },
+    methods:{
+        createCommentHendler(){
+            this.canAddComment=false
+
+        }
     }
 }
 </script>
