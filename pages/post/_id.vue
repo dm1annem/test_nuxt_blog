@@ -34,7 +34,9 @@
         </main>
 
         <footer>
-            <!-- Form -->
+            <comment-form/>
+
+           
 
             <div class="comments" v-if="true">
                 <app-comment
@@ -54,9 +56,11 @@
 
 <script>
 import AppComment from '@/components/main/Comment.vue'
+import AppCommentForm from '@/components/main/CommentForm.vue'
 export default {
     components:{
         AppComment,
+        AppCommentForm,
     },
     validate({params}){
         return Boolean(params.id)
