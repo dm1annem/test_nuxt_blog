@@ -21,6 +21,7 @@
         <el-form-item >
             <el-button 
             type="primary"
+            native-type="submit"
             round
             >Разместить комментарий</el-button>
         </el-form-item>
@@ -40,14 +41,14 @@
                 name:[
                     {
                     required: true,
-                    messege: 'Имя должно быть заполнено',
+                    message: 'Имя должно быть заполнено',
                     triger: 'blur'
                 }
                 ],
                 text:[
                     {
                     required: true,
-                    messege: 'Введите ваш комментарий.',
+                    message: 'Введите ваш комментарий.',
                     triger: 'blur'   
                     }]
         }
@@ -56,8 +57,12 @@
     },
     methods: {
       onSubmit() {
-        console.log('submit!');
-      }
+        this.$refs.form.validate(valid => {
+          if (valid) {
+            alert('submit!');
+          } 
+        });
+      },
     }
   }
 </script>
