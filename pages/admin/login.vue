@@ -1,6 +1,9 @@
 <template>
-    <el-card>
-
+    <el-card
+    shadow="always"
+    :style="{ width: '500px' }"
+    >
+        Login
     </el-card>
 </template>
 
