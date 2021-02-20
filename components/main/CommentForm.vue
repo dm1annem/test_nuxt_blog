@@ -5,6 +5,7 @@
     ref="form"
     @submit.native.prevent="onSubmit"
     >
+      <h1>Войти в панель администратора</h1>
         <el-form-item label="Имя" prop="name">
             <el-input v-model.trim="controls.name"/>
         </el-form-item>
@@ -46,14 +47,14 @@
                     {
                     required: true,
                     message: 'Имя должно быть заполнено',
-                    triger: 'blur'
+                    trigger: 'blur'
                 }
                 ],
                 text:[
                     {
                     required: true,
                     message: 'Введите ваш комментарий.',
-                    triger: 'blur'   
+                    trigger: 'blur'   
                     }]
         }
         
