@@ -64,10 +64,15 @@ export default {
     mounted(){
         const{message} = this.$route.query
        
-
-        if(message === 'login'){
-            this.$message.info('Для начала авторизуйтесь')
+        switch (message){
+            case 'login': this.$message.info('Для начала необходимо авторизоваться')
+            break
+            case 'logaut':this.$message.success('Вы успешно вышли из системы')
+            break
         }
+        
+
+        
     },
 
     methods:{
