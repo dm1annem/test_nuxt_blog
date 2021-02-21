@@ -5,6 +5,9 @@ export const state = () =>({
 })
 
 export const mutations = {
+    setToken(state, token){
+        state.token = token
+    }
 
 }
 
@@ -15,7 +18,11 @@ export const actions = {
             setTimeout(() => resolve('Полная хуйня'), 2000)
         })
 
-        console.log('token', token)
+        dispatch('setToken', token)
+    },
+
+    setToken({commit}, token){
+        commit('setToken', token)
     }
 }
 

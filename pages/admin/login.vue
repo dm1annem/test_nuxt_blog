@@ -55,10 +55,7 @@ export default {
                     {required: true, message: 'Введите пароль', trigger: 'blur' },
                     {min: 6, message: 'Пароль должен быть не менее 6 символов', trigger: 'blur'}
 
-                    // {min: 6, message: 'Пароль должен быть не менее 6 символов', trigger: 'blur'},
-                    // ,
-                    
-                    
+                                        
                 ]
             }
         }
@@ -67,7 +64,7 @@ export default {
     methods:{
         
         onSubmit(){
-            this.$refs.form.validate(valid=>{
+            this.$refs.form.validate(async valid=>{
                 if(valid){
                     console.log('validiruet')
                     this.loading = true
@@ -79,7 +76,8 @@ export default {
                         password: this.controls.password
                     }
 
-                    this.$store.dispatch('auth/login', formData)
+                    await this.$store.dispatch('auth/login', formData)
+                    this.$router.push('/admin')
 
                 } catch(e) {
                     this.loading = false
