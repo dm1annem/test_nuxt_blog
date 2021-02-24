@@ -1,4 +1,4 @@
-import 'core-js/es/promise'
+import 'core-js/es/promise' // нужно /es6/ или /es7/ поменять на /es/ в связи с обновлениями в core-js
 
 export const state = () =>({
     token: true,
