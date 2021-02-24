@@ -80,7 +80,6 @@ export default {
         onSubmit(){
             this.$refs.form.validate(async valid=>{
                 if(valid){
-                    console.log('validiruet')
                     this.loading = true
                 }
 

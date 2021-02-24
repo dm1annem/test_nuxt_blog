@@ -1,7 +1,7 @@
 import 'core-js/es/promise'
 
 export const state = () =>({
-    token: null,
+    token: true,
 })
 
 export const mutations = {
@@ -16,12 +16,20 @@ export const mutations = {
 
 export const actions = {
     async login({commit, dispatch}, formData) {
-       
-        const token = await new Promise(resolve => {
-            setTimeout(() => resolve('Полная хуйня'), 2000)
-        })
 
-        dispatch('setToken', token)
+        try{
+            const token = await new Promise((resolve, reject) => {
+                setTimeout(() => reject('Полная хуйня'), 1000)
+            })
+    
+            dispatch('setToken', token)
+
+        } catch(e){
+            commit('setError', e, {root: true})
+            throw e
+        }
+       
+        
     },
 
     setToken({commit}, token){
