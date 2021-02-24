@@ -15,6 +15,13 @@ export const mutations = {
 }
 
 export const actions = {
+
+    async createUser({commit}, formData){
+        try{
+            console.log('создан пользователь', formData)
+        }catch(e){}
+    },
+
     async login({commit, dispatch}, formData) {
 
         try{

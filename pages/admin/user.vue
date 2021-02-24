@@ -82,8 +82,11 @@ export default {
                         password: this.controls.password
                     }
 
-                    await this.$store.dispatch('auth/login', formData)
-                    this.$router.push('/admin')
+                    await this.$store.dispatch('auth/createUser', formData)
+                    this.$message.success('Новый пользователь успешно добавлен')
+                    this.controls.login = ''
+                    this.controls.password = ''
+                    this.loading = false
 
                 } catch(e) {
                     this.loading = false
