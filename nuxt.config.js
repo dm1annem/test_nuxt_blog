@@ -21,6 +21,8 @@ export default {
     '@/theme/index.scss'
   ],
 
+  loading: {color: '#409EFF'},
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui'

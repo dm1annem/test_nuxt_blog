@@ -12,6 +12,10 @@ export const actions = {
                 )
             }, 1000)
         })
+    },
+
+    async remove({}, id){
+        
     }
 }
 
