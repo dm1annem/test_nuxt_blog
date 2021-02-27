@@ -95,7 +95,7 @@ export default {
 
                 try{
                     await this.$store.dispatch('post/update', formData)
-                    this.message.success('Пост обновлён')
+                    this.$message.success('Пост обновлён')
                     this.loading = false
                 }catch(e){
                     this.loading = false
