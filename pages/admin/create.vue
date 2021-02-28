@@ -37,6 +37,20 @@
 
                 </el-dialog>
 
+                <el-upload
+                    
+                    class="mb2"
+                    drag
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :on-change="hendleImageChenge"
+                    :auto-upload="false"
+                    ref="upload"
+                >
+                    <i class="el-icon-upload"></i>
+                    <div class="el-upload__text">Перетащите изображение <em>или нажмите</em></div>
+                    <div class="el-upload__tip" slot="tip">Допускаются файлы в формате jpg или png </div>
+                </el-upload>
+
                 
                 
                 
@@ -54,7 +68,6 @@
 </template>
 
 <script>
-// import VueMarkdown from 'vue-markdown'
 
 export default {
     layout: 'admin',
@@ -66,6 +79,7 @@ export default {
 
     data() {
         return{
+            image: null,
             loading: false,
             previewDialog: false,
 
@@ -89,21 +103,27 @@ export default {
     },
 
     methods: {
+        hendleImageChenge(file, fileList){
+            this.image = file.raw
+        },
+
         onSubmit(){
             this.$refs.form.validate(async valid =>{
-                if(valid){
+                if(valid && this.image){
                     this.loading = true
                     
 
                     const formData = {
                         text: this.controls.text,
-                        title: this.controls.title
+                        title: this.controls.title,
+                        image: this.image
                     }
                     try {
                     await this.$store.dispatch('post/create', formData)
                     this.controls.title = ''
                     this.controls.text = ''
-                    
+                    this.image = null
+                    this.$refs.upload.clearFiles()
                     this.$message.success('Пост создан') 
                     } catch (error) {
                         
@@ -111,6 +131,8 @@ export default {
                         this.loading = false
                     }
                     
+                } else{
+                    this.$message.warning('Форма не валидна')
                 }
             })
         }

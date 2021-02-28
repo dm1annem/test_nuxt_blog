@@ -24,7 +24,7 @@ export const actions = {
 
     },
 
-    async create({}, {text, title}){
+    async create({}, {text, title, image}){
         return await new Promise(resolve => {
             setTimeout(() => {
                 resolve()
