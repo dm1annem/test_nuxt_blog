@@ -12,9 +12,11 @@
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.9.0",
     "element-ui": "^2.15.0",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
+    "@types/vue-markdown": "^2.2.1",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
     "pug": "^3.0.0",
