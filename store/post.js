@@ -24,12 +24,26 @@ export const actions = {
 
     },
 
-    async create({}, {text, title, image}){
-        return await new Promise(resolve => {
-            setTimeout(() => {
-                resolve()
-            }, 1000)
-        })
+    async create({commit}, {text, title, image}){
+        try{
+            const fd = new FormData()
+
+            fd.append('text', text)
+            fd.append('title', title)
+            fd.append('image', image, image.name)
+
+            return await new Promise(resolve => {
+                setTimeout(() => {
+                    resolve()
+                }, 1000)
+            })
+
+        }catch(e){
+            commit('setError', e, {root: true})
+            throw e
+        }
+
+        
     },
 
     async fitchAdmynById({}, id){
